@@ -5,8 +5,8 @@ TEST(StudentManagerTest, AddStudent) {
     StudentManager& manager = StudentManager::getInstance();
     manager.addStudent("Alice");
 
-    std::vector<std::string> students = manager.getStudents();
-    EXPECT_NE(std::find(students.begin(), students.end(), "Alice"), students.end());
+    vector<string> students = manager.getStudents();
+    EXPECT_NE(find(students.begin(), students.end(), "Alice"), students.end());
 }
 
 TEST(StudentManagerTest, RemoveStudent) {
@@ -14,6 +14,6 @@ TEST(StudentManagerTest, RemoveStudent) {
     manager.addStudent("Bob");
     manager.removeStudent("Bob");
 
-    std::vector<std::string> students = manager.getStudents();
-    EXPECT_EQ(std::find(students.begin(), students.end(), "Bob"), students.end());
+    vector<string> students = manager.getStudents();
+    EXPECT_EQ(find(students.begin(), students.end(), "Bob"), students.end());
 }
