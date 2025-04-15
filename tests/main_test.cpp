@@ -1,18 +1,19 @@
-#include <gtest/gtest.h>
+#include "gtest/gtest.h"
 #include "../src/headers.h"
 
-TEST(LoggerTest, SingletonIdentity) {
-    Logger& a = Logger::getInstance();
-    Logger& b = Logger::getInstance();
-    EXPECT_EQ(&a, &b); // Should be same instance
+TEST(StudentManagerTest, AddStudent) {
+    StudentManager& manager = StudentManager::getInstance();
+    manager.addStudent("Alice");
+
+    std::vector<std::string> students = manager.getStudents();
+    EXPECT_NE(std::find(students.begin(), students.end(), "Alice"), students.end());
 }
 
-TEST(LoggerTest, LoggingOutput) {
-    Logger::getInstance().log("Test message - check console");
-    SUCCEED(); // We assume logging just prints to stdout
-}
+TEST(StudentManagerTest, RemoveStudent) {
+    StudentManager& manager = StudentManager::getInstance();
+    manager.addStudent("Bob");
+    manager.removeStudent("Bob");
 
-int main(int argc, char **argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
+    std::vector<std::string> students = manager.getStudents();
+    EXPECT_EQ(std::find(students.begin(), students.end(), "Bob"), students.end());
 }

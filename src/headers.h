@@ -1,21 +1,23 @@
-#pragma once
-#include <iostream>
-#include <string>
+#ifndef MATH_H
+#define MATH_H
 
-class Logger {
-private:
-    Logger() {}
+#include<bits/stdc++.h>
+using namespace std;
 
+class StudentManager {
 public:
-    static Logger& getInstance() {
-        static Logger instance;
-        return instance;
-    }
+    static StudentManager& getInstance();
+    
+    void addStudent(const string& name);
+    void removeStudent(const string& name);
+    vector<string> getStudents();
+    int getStudentcount() const;
 
-    void log(const std::string& message) {
-        std::cout << "[LOG] " << message << std::endl;
-    }
+private:
+    StudentManager() = default;
+    ~StudentManager() = default;
 
-    Logger(const Logger&) = delete;
-    Logger& operator=(const Logger&) = delete;
+    vector<string> students;
 };
+
+#endif // MATH_H

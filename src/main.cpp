@@ -1,15 +1,22 @@
 #include "headers.h"
-//this is main
-int main() {
-    Logger& logger1 = Logger::getInstance();
-    Logger& logger2 = Logger::getInstance();
 
-    logger1.log("Logger 1: Starting up");
-    logger2.log("Logger 2: Processing data");
-
-    if (&logger1 == &logger2) {
-        std::cout << "Same logger instance (singleton working)." << std::endl;
-    }
-
-    return 0;
+//singleton function
+StudentManager& StudentManager::getInstance() {
+    static StudentManager instance;
+    return instance;
 }
+void StudentManager::addStudent(const string& name) {
+    students.push_back(name);
+}
+
+void StudentManager::removeStudent(const string& name) {
+    students.erase(remove(students.begin(), students.end(), name), students.end());
+}
+
+vector<string> StudentManager::getStudents() {
+    return students;
+}
+int StudentManager::getStudentcount() const {
+    return students.size();
+}
+

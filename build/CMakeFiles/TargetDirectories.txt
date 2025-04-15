@@ -1,0 +1,5 @@
+/home/nahid/Code/lab_final/build/CMakeFiles/main.dir
+/home/nahid/Code/lab_final/build/CMakeFiles/testsuite.dir
+/home/nahid/Code/lab_final/build/CMakeFiles/test.dir
+/home/nahid/Code/lab_final/build/CMakeFiles/edit_cache.dir
+/home/nahid/Code/lab_final/build/CMakeFiles/rebuild_cache.dir

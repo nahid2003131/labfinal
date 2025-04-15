@@ -1,0 +1,8 @@
+create c++ program that uses the singleton Pattern to manage a single instance of a 
+"StudentManager" class , which holds a list of student.
+
+Requirements: 
+
+Implement the singleton Pattern
+Add functionalities to add , remove  & display students names
+write at least 2 test cases using gtest 
